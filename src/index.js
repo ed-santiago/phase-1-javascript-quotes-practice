@@ -16,6 +16,7 @@ fetch("http://localhost:3000/quotes?_embed=likes")
 
 //Loop through quotes
 function renderQuotes(quotes) {
+  console.log(quotes)
   quotes.forEach(quote => renderQuote(quote))
 }
 
@@ -34,7 +35,8 @@ function renderQuote(quote) {
   `
   quoteList.append(quoteLi);
 
-  quoteLi.querySelector(".btn-danger").addEventListener("click", () => handleDeleteClick(quote))
+  quoteLi.querySelector(".btn-success").addEventListener("click", () => handleLikeClick(quote));
+  quoteLi.querySelector(".btn-danger").addEventListener("click", () => handleDeleteClick(quote));
 }
 
 //Submit new quote
@@ -60,6 +62,21 @@ function handleSubmit(e) {
     .then(res => res.json())
     .then(quote => renderQuote(quote))
   e.target.reset();
+}
+
+//Like quote
+function handleLikeClick(quote) {
+  fetch("http://localhost:3000/likes", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify({
+      quoteId: Number(quote.id),
+      createdAt: Date.now()
+    })
+  })
 }
 
 //Delete quote
