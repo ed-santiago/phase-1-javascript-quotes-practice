@@ -1,13 +1,8 @@
 {
   "quotes": [
     {
-      "id": "1",
-      "quote": "edmond is the best!!!",
-      "author": "edmond"
-    },
-    {
       "id": "2",
-      "quote": "Y’all is the best, most inclusive, second-person, plural pronoun in the English-speaking world.",
+      "quote": "Y’all is the best, most inclusive, second-person, plural pronoun in the English-speaking world. yh buddy",
       "author": "Hannah Gadsby"
     },
     {
@@ -46,9 +41,9 @@
       "author": "James Baldwin"
     },
     {
-      "id": "10",
-      "quote": "You know, failure hurts. Any kind of failure stings. If you live in the sting, you will undoubtedly fail. My way of getting past the sting is to say no, I’m just not going to let this get me down.",
-      "author": "Sonia Sotomayor"
+      "id": "d66c",
+      "quote": "I DID IT",
+      "author": "Edmond"
     }
   ],
   "likes": [
@@ -66,6 +61,111 @@
       "id": "a2ab",
       "quoteId": 2,
       "createdAt": 1706263480884
+    },
+    {
+      "id": "f975",
+      "quoteId": 1,
+      "createdAt": 1706340714973
+    },
+    {
+      "id": "0bcd",
+      "quoteId": 1,
+      "createdAt": 1706340715035
+    },
+    {
+      "id": "8a82",
+      "quoteId": 10,
+      "createdAt": 1706340718299
+    },
+    {
+      "id": "5f14",
+      "quoteId": 10,
+      "createdAt": 1706340720177
+    },
+    {
+      "id": "15e1",
+      "quoteId": 3,
+      "createdAt": 1706340832321
+    },
+    {
+      "id": "e788",
+      "quoteId": 4,
+      "createdAt": 1706340834881
+    },
+    {
+      "id": "bbff",
+      "quoteId": 5,
+      "createdAt": 1706340837665
+    },
+    {
+      "id": "d5d0",
+      "quoteId": 6,
+      "createdAt": 1706341081128
+    },
+    {
+      "id": "3525",
+      "quoteId": 7,
+      "createdAt": 1706341306252
+    },
+    {
+      "id": "2785",
+      "quoteId": 7,
+      "createdAt": 1706341306299
+    },
+    {
+      "id": "ee1e",
+      "quoteId": 8,
+      "createdAt": 1706341451297
+    },
+    {
+      "id": "fb9f",
+      "quoteId": 9,
+      "createdAt": 1706341453081
+    },
+    {
+      "id": "0c85",
+      "quoteId": 9,
+      "createdAt": 1706341453125
+    },
+    {
+      "id": "c896",
+      "quoteId": 6,
+      "createdAt": 1706341538086
+    },
+    {
+      "id": "2ea3",
+      "quoteId": 5,
+      "createdAt": 1706341539212
+    },
+    {
+      "id": "96d1",
+      "quoteId": 8,
+      "createdAt": 1706341648984
+    },
+    {
+      "id": "c196",
+      "quoteId": 3,
+      "createdAt": 1706341666156
+    },
+    {
+      "id": "3ce9",
+      "quoteId": 3,
+      "createdAt": 1706341666194
+    },
+    {
+      "id": "73de",
+      "quoteId": 3,
+      "createdAt": 1706341666220
+    },
+    {
+      "id": "9a78",
+      "quoteId": 2,
+      "createdAt": 1706341667715
+    },
+    {
+      "id": "e7ad",
+      "quoteId": 4,
+      "createdAt": 1706341669504
     }
   ]
 }

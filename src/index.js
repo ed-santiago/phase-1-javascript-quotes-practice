@@ -14,14 +14,30 @@ fetch("http://localhost:3000/quotes?_embed=likes")
   .then(res => res.json())
   .then(quotes => renderQuotes(quotes))
 
+//Sort authors alphabetically
+const sortButton = document.querySelector("#sort-quote")
+sortButton.addEventListener("click", () => {
+  fetch("http://localhost:3000/quotes?_embed=likes")
+    .then(res => res.json())
+    .then(quotes => {
+      const sorted = quotes.sort(compareByName)
+      quoteList.innerHTML = "";
+      renderQuotes(sorted)
+    })
+})
+
+function compareByName(a, b) {
+  return a.author.localeCompare(b.author);
+}
+
 //Loop through quotes
 function renderQuotes(quotes) {
-  console.log(quotes)
   quotes.forEach(quote => renderQuote(quote))
 }
 
 //Show quotes on screen
 function renderQuote(quote) {
+  const id = quote.id;
   const quoteLi = document.createElement("li");
   quoteLi.className = "quote-card";
   quoteLi.innerHTML = `
@@ -44,9 +60,14 @@ function renderQuote(quote) {
     </form>
   `
   quoteList.append(quoteLi);
+  const likeButton = quoteLi.querySelector(".btn-success");
+  fetch(`http://localhost:3000/likes?quoteId=${id}`)
+    .then(res => res.json())
+    .then(likesArray => likeButton.textContent = `Likes: ${likesArray.length}`)
 
-  quoteLi.querySelector(".btn-success").addEventListener("click", () => handleLikeClick(quote));
+  likeButton.addEventListener("click", () => handleLikeClick(quote, id, likeButton));
   quoteLi.querySelector(".btn-danger").addEventListener("click", () => handleDeleteClick(quote));
+
   quoteLi.querySelector(".btn-edit").addEventListener("click", (e) => {
     const editForm = quoteLi.querySelector("#edit-form");
     const editQuote = quoteLi.querySelector("#edit-quote");
@@ -55,7 +76,6 @@ function renderQuote(quote) {
       editForm.style.display = "block";
       editQuote.value = quote.quote;
       editAuthor.value = quote.author;
-      const id = quote.id;
       editForm.addEventListener("submit", e => handleEditSubmit(e, id))
     }
     else
@@ -114,7 +134,7 @@ function handleSubmit(e) {
 }
 
 //Like quote
-function handleLikeClick(quote) {
+function handleLikeClick(quote, id, likeButton) {
   fetch("http://localhost:3000/likes", {
     method: "POST",
     headers: {
@@ -126,6 +146,13 @@ function handleLikeClick(quote) {
       createdAt: Date.now()
     })
   })
+    .then(res => res.json())
+    .then(() => {
+      fetch(`http://localhost:3000/likes?quoteId=${id}`)
+        .then(res => res.json())
+        .then(likesArray => likeButton.textContent = `Likes: ${likesArray.length}`)
+
+    })
 }
 
 //Delete quote
