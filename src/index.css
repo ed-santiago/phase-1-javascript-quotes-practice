@@ -1,3 +1,9 @@
 #quote-list {
   padding: 20px;
 }
+
+.btn-edit {
+  background-color: rgb(37, 132, 196);
+  border-color: rgb(37, 132, 196);
+  color: white;
+}
